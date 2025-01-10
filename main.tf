@@ -59,3 +59,12 @@ output "public_subnet_id" {
 output "private_subnet_id" {
   value = aws_subnet.private.id
 }
+
+resource "aws_s3_bucket" "my_bucket" {
+  bucket = "my-unique-bucket-name-1234509"
+  force_destroy = true       # Set to true to delete all objects when destroying the bucket
+  tags = {
+    Name        = "My S3 Bucket"
+    Environment = "Dev"
+  }
+}
